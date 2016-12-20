@@ -1,0 +1,73 @@
+body {
+	background-image: url("../images/background.jpg");
+}
+header {
+    width: 100%;
+    height:300px;
+	background-color: #000000;
+}
+#header-image{
+	width: 100%;
+	height: 100%;
+}
+
+#choose{
+	text-align: center;
+	font-family: 'Play', sans-serif;
+	font-size: 30px;
+	background-color: #9e0b0b;
+	margin: 30px;
+}
+
+#players{
+	background-color: #9e0b0b;
+	margin: 30px;
+	height: 230px;
+	opacity: 0.8;
+}
+#players img{
+	margin: 10px;
+	border-radius: 50%;
+}
+#chosen-players{
+	background-color: #9e0b0b;
+	margin-left: 30px;
+	height: 250px;
+	width: 50%;
+	display: inline-block;
+	opacity: 0.8;
+}
+#chosen-players img{
+	border-radius: 50%;
+	margin: 10px;
+}
+button{
+	background: #9e0b0b;
+	height: 250px;
+}
+#messages{
+	background-color: #9e0b0b;
+	margin-left: 25px;
+	height: 250px;
+	width: 30%;
+	display: inline-block;
+	vertical-align: top;
+	opacity: 0.8;
+}
+#attack{
+	margin-left: 25px;
+	display: inline-block;
+	vertical-align: top;
+}
+#battle{
+	margin-left: 20px;
+	margin-top: 15px;
+}
+#score{
+	text-align: left;
+	position: absolute;
+	bottom: -30px;
+	margin-left: 20px;
+}
+
+
