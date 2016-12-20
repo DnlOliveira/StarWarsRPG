@@ -13,10 +13,10 @@ $(document).ready(function() {
 		this.status = stat;
 	}
 
-	var darthVader = new player("Darth Vader", 500, 50, 50, false);
+	var darthVader = new player("Darth Vader", 600, 40, 40, false);
 	var darthMaul = new player("Darth Maul", 300, 40, 40, false);
-	var lukeSkywalker = new player("Luke Skywalker", 300, 40, 40, false);
-	var obiWan = new player("Obi Wan", 200, 40, 40, false);
+	var lukeSkywalker = new player("Luke Skywalker", 400, 40, 40, false);
+	var obiWan = new player("Obi Wan", 500, 40, 40, false);
 
 	var wins = 0;
 	var losses = 0;
@@ -25,6 +25,8 @@ $(document).ready(function() {
 		"<br>Losses: " + losses);
 
 	currentGame = {
+		kills: 0,
+		warrior: "",
 		myChoice: false,
 		enemyChoice: false,
 
@@ -59,6 +61,10 @@ $(document).ready(function() {
 					this.counterAttack = lukeSkywalker.counterAttack;
 					$("#chosen-players").append("<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>");
 
+					if (this.myChoice === false){
+						this.warrior = "<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>";
+					}
+
 					this.luke = true;
 					this.remainingPlayers();
 				}
@@ -68,6 +74,10 @@ $(document).ready(function() {
 					this.attack = obiWan.attackPower;
 					this.counterAttack = obiWan.counterAttack;
 					$("#chosen-players").append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
+
+					if (this.myChoice === false){
+						this.warrior = "<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>";
+					}
 
 					this.obi = true;
 					this.remainingPlayers();
@@ -79,6 +89,10 @@ $(document).ready(function() {
 					this.counterAttack = darthVader.counterAttack;
 					$("#chosen-players").append("<img class='image' src='assets/images/DarthVader2.jpg' height='200' width='200' value='darthVader'>");
 
+					if (this.myChoice === false){
+						this.warrior = "<img class='image' src='assets/images/DarthVader2.jpg' height='200' width='200' value='darthVader'>";
+					}
+
 					this.vader = true;
 					this.remainingPlayers();
 				}
@@ -88,6 +102,10 @@ $(document).ready(function() {
 					this.attack = darthMaul.attackPower;
 					this.counterAttack = darthMaul.counterAttack;
 					$("#chosen-players").append("<img class='image' src='assets/images/DarthMaul2.jpg' height='200' width='200' value='darthMaul'>");
+
+					if (this.myChoice === false){
+						this.warrior = "<img class='image' src='assets/images/DarthMaul2.jpg' height='200' width='200' value='darthMaul'>";
+					}
 
 					this.maul = true;
 					this.remainingPlayers();
@@ -145,7 +163,7 @@ $(document).ready(function() {
 
 			this.myHp = this.myHp - this.enemyCounterAttack;
 
-			this.myAttack = this.myAttack + 50;
+			this.myAttack = this.myAttack + 20;
 
 			$("#messages").html("<p id='battle'>ME: " + "<br>" + this.myChar +
 				"<br>HP: " + this.myHp + "<br>ATTACK POWER: " + this.myAttack + "</p>");
@@ -156,17 +174,58 @@ $(document).ready(function() {
 
 			if (this.enemyHp <= 0){
 				$("#choose").html("<h1>CHOOSE NEXT ENEMY</H1>");
+				this.enemyChoice = false;
+				$("#chosen-players").html(this.warrior);
+				this.kills++;
 
+				if (this.kills === 3){
+					$("#choose").html("<h1>YOU HAVE DEFEATED ALL ENEMIES</H1>");
+					wins++;
+					this.newGame();
+					
+				}
 			}
 			else if (this.myHp <= 0){
 				losses++;
 				$("#choose").html("<h1>GAME OVER - YOU LOST</H1>");
+				this.newGame();
 			}
 		},
 
 		newGame: function(){
-			myChar = "";
-			enemyChar = "";
+			this.kills = 0;
+			this.warrior = "";
+			this.myChoice = false;
+			this.enemyChoice = false;
+
+			this.luke = false;
+			this.obi = false;
+			this.vader = false;
+			this.maul = false;
+
+			this.char = "";
+			this.hp = 0;
+			this.attack = 0;
+			this.counterAttack = 0;
+
+			this.myChar = "";
+			this.myHp = 0;
+			this.myAttack = 0;
+
+			this.enemyChar = "";
+			this.enemyHp = 0;
+			this.enemyCounterAttack = 0;
+
+			$("#messages").html("<p id='score'> Wins: " + wins +
+				"<br>Losses: " + losses);
+
+			$("#choose").append("<h1>CHOOSE YOUR WARRIOR</H1>");
+			$("#players").append("<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>");
+			$("#players").append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
+			$("#players").append("<img class='image' src='assets/images/DarthVader2.jpg' height='200' width='200' value='darthVader'>");
+			$("#players").append("<img class='image' src='assets/images/DarthMaul2.jpg' height='200' width='200' value='darthMaul'>");
+
+			$("#chosen-players").empty();
 		},
 	}; //CurrentGame Object
 
@@ -176,16 +235,23 @@ $(document).ready(function() {
 		var value = $(this).attr('value');
 
 		currentGame.setPlayers(value);
-
-
 	}); //on.click characters
+
 
 	$("#button").on("click", function(){
 		var value = $(this).attr('value');
 		console.log(value);
 
-		currentGame.ActionAttack();
-	});
+		if (currentGame.myChoice === false){
+
+		}
+		else if (currentGame.enemyChoice === false){
+
+		}
+		else{
+			currentGame.ActionAttack();
+		}
+	}); //on.click attack button
 
 });
 
