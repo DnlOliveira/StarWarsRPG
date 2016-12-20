@@ -2,8 +2,8 @@ $(document).ready(function() {
 	$("#choose").append("<h1>CHOOSE YOUR WARRIOR</H1>");
 	$("#players").append("<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>");
 	$("#players").append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
-	$("#players").append("<img class='image' src='assets/images/DarthVader2.jpg' height='200' width='200' value='darthVader'>");
-	$("#players").append("<img class='image' src='assets/images/DarthMaul2.jpg' height='200' width='200' value='darthMaul'>");
+	$("#players").append("<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>");
+	$("#players").append("<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>");
 
 	function player(name, hp, attack, counter, stat){
 		this.name = name;
@@ -87,10 +87,10 @@ $(document).ready(function() {
 					this.hp = darthVader.hp;
 					this.attack = darthVader.attackPower;
 					this.counterAttack = darthVader.counterAttack;
-					$("#chosen-players").append("<img class='image' src='assets/images/DarthVader2.jpg' height='200' width='200' value='darthVader'>");
+					$("#chosen-players").append("<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>");
 
 					if (this.myChoice === false){
-						this.warrior = "<img class='image' src='assets/images/DarthVader2.jpg' height='200' width='200' value='darthVader'>";
+						this.warrior = "<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>";
 					}
 
 					this.vader = true;
@@ -101,10 +101,10 @@ $(document).ready(function() {
 					this.hp = darthMaul.hp;
 					this.attack = darthMaul.attackPower;
 					this.counterAttack = darthMaul.counterAttack;
-					$("#chosen-players").append("<img class='image' src='assets/images/DarthMaul2.jpg' height='200' width='200' value='darthMaul'>");
+					$("#chosen-players").append("<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>");
 
 					if (this.myChoice === false){
-						this.warrior = "<img class='image' src='assets/images/DarthMaul2.jpg' height='200' width='200' value='darthMaul'>";
+						this.warrior = "<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>";
 					}
 
 					this.maul = true;
@@ -151,10 +151,10 @@ $(document).ready(function() {
 				$("#players").append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
 			}
 			if (this.vader === false){
-				$("#players").append("<img class='image' src='assets/images/DarthVader2.jpg' height='200' width='200' value='darthVader'>");
+				$("#players").append("<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>");
 			}
 			if (this.maul === false){
-				$("#players").append("<img class='image' src='assets/images/DarthMaul2.jpg' height='200' width='200' value='darthMaul'>");
+				$("#players").append("<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>");
 			}
 
 		},
@@ -222,8 +222,8 @@ $(document).ready(function() {
 			$("#choose").append("<h1>CHOOSE YOUR WARRIOR</H1>");
 			$("#players").append("<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>");
 			$("#players").append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
-			$("#players").append("<img class='image' src='assets/images/DarthVader2.jpg' height='200' width='200' value='darthVader'>");
-			$("#players").append("<img class='image' src='assets/images/DarthMaul2.jpg' height='200' width='200' value='darthMaul'>");
+			$("#players").append("<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>");
+			$("#players").append("<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>");
 
 			$("#chosen-players").empty();
 		},
