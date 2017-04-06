@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	$("#choose").append("<h1>CHOOSE YOUR WARRIOR</H1>");
-	$("#players").append("<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>");
-	$("#players").append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
-	$("#players").append("<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>");
-	$("#players").append("<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>");
+	$("#image-wrap").append("<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>");
+	$("#image-wrap").append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
+	$("#image-wrap").append("<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>");
+	$("#image-wrap").append("<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>");
 
 	function player(name, hp, attack, counter, stat){
 		this.name = name;
@@ -54,12 +54,19 @@ $(document).ready(function() {
 
 			}
 			else{
+				if(this.myChoice === false) {
+					id = "#player1";
+				}
+				else {
+					id = "#player2";
+				}
+
 				if (choice === "luke"){
 					this.char = lukeSkywalker.name;
 					this.hp = lukeSkywalker.hp;
 					this.attack = lukeSkywalker.attackPower;
 					this.counterAttack = lukeSkywalker.counterAttack;
-					$("#chosen-players").append("<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>");
+					$(id).append("<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>");
 
 					if (this.myChoice === false){
 						this.warrior = "<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>";
@@ -73,7 +80,7 @@ $(document).ready(function() {
 					this.hp = obiWan.hp;
 					this.attack = obiWan.attackPower;
 					this.counterAttack = obiWan.counterAttack;
-					$("#chosen-players").append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
+					$(id).append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
 
 					if (this.myChoice === false){
 						this.warrior = "<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>";
@@ -87,7 +94,7 @@ $(document).ready(function() {
 					this.hp = darthVader.hp;
 					this.attack = darthVader.attackPower;
 					this.counterAttack = darthVader.counterAttack;
-					$("#chosen-players").append("<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>");
+					$(id).append("<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>");
 
 					if (this.myChoice === false){
 						this.warrior = "<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>";
@@ -101,7 +108,7 @@ $(document).ready(function() {
 					this.hp = darthMaul.hp;
 					this.attack = darthMaul.attackPower;
 					this.counterAttack = darthMaul.counterAttack;
-					$("#chosen-players").append("<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>");
+					$(id).append("<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>");
 
 					if (this.myChoice === false){
 						this.warrior = "<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>";
@@ -120,9 +127,9 @@ $(document).ready(function() {
 
 				$("#choose").html("<h1>CHOOSE YOUR ENEMY</H1>");
 
-				$("#messages").html("<p id='battle'>ME: " + "<br>" + this.myChar +
+				$("#me").html("<p id='battle'>ME: " + "<br>" + this.myChar +
 					"<br>HP: " + this.myHp + "<br>ATTACK POWER: " + this.myAttack + "</p>");
-				$("#messages").append("<p id='score'> Wins: " + wins +
+				$("#messages").html("<p id='score'> Wins: " + wins +
 					"<br>Losses: " + losses);
 				}
 				else if (this.myChoice === true){
@@ -134,7 +141,7 @@ $(document).ready(function() {
 
 				$("#choose").html("<h1>FIGHT!</H1>");
 
-				$("#messages").append("<br><p id='battle'>ENEMY: " + "<br>" + this.enemyChar +
+				$("#enemy").html("<p id='battle'>ENEMY: " + "<br>" + this.enemyChar +
 					"<br>HP: " + this.enemyHp + "<br>ATTACK POWER: " + this.enemyCounterAttack + "</p>");
 
 				console.log(this.enemyCounterAttack);
@@ -142,19 +149,19 @@ $(document).ready(function() {
 			}
 		},
 		remainingPlayers: function(){
-			$("#players").html("");
+			$("#image-wrap").html("");
 
 			if (this.luke === false){
-				$("#players").append("<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>");
+				$("#image-wrap").append("<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>");
 			}
 			if (this.obi === false){
-				$("#players").append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
+				$("#image-wrap").append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
 			}
 			if (this.vader === false){
-				$("#players").append("<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>");
+				$("#image-wrap").append("<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>");
 			}
 			if (this.maul === false){
-				$("#players").append("<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>");
+				$("#image-wrap").append("<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>");
 			}
 
 		},
@@ -165,24 +172,24 @@ $(document).ready(function() {
 
 			this.myAttack = this.myAttack + 20;
 
-			$("#messages").html("<p id='battle'>ME: " + "<br>" + this.myChar +
+			$("#me").html("<p id='battle'>ME: " + "<br>" + this.myChar +
 				"<br>HP: " + this.myHp + "<br>ATTACK POWER: " + this.myAttack + "</p>");
-			$("#messages").append("<br><p id='battle'>ENEMY: " + "<br>" + this.enemyChar +
+			$("#enemy").html("<p id='battle'>ENEMY: " + "<br>" + this.enemyChar +
 				"<br>HP: " + this.enemyHp + "<br>ATTACK POWER: " + this.enemyCounterAttack + "</p>");
-			$("#messages").append("<p id='score'> Wins: " + wins +
+			$("#messages").html("<p id='score'> Wins: " + wins +
 					"<br>Losses: " + losses);
 
 			if (this.enemyHp <= 0){
 				$("#choose").html("<h1>CHOOSE NEXT ENEMY</H1>");
 				this.enemyChoice = false;
-				$("#chosen-players").html(this.warrior);
+				$("#player2").html("");
 				this.kills++;
 
 				if (this.kills === 3){
 					$("#choose").html("<h1>YOU HAVE DEFEATED ALL ENEMIES</H1>");
 					wins++;
 					this.newGame();
-					
+
 				}
 			}
 			else if (this.myHp <= 0){
@@ -220,12 +227,13 @@ $(document).ready(function() {
 				"<br>Losses: " + losses);
 
 			$("#choose").append("<h1>CHOOSE YOUR WARRIOR</H1>");
-			$("#players").append("<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>");
-			$("#players").append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
-			$("#players").append("<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>");
-			$("#players").append("<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>");
+			$("#image-wrap").append("<img class='image' src='assets/images/luke2.jpg' height='200' width='200' value='luke'>");
+			$("#image-wrap").append("<img class='image' src='assets/images/obiWan2.jpg' height='200' width='200' value='obiWan'>");
+			$("#image-wrap").append("<img class='image' src='assets/images/darthVader2.jpg' height='200' width='200' value='darthVader'>");
+			$("#image-wrap").append("<img class='image' src='assets/images/darthMaul2.jpg' height='200' width='200' value='darthMaul'>");
 
-			$("#chosen-players").empty();
+			$("#player1").empty();
+			$("#player2").empty();
 		},
 	}; //CurrentGame Object
 
@@ -254,6 +262,3 @@ $(document).ready(function() {
 	}); //on.click attack button
 
 });
-
-
-

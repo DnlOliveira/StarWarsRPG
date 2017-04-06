@@ -1,73 +1,118 @@
 body {
 	background-image: url("../images/background.jpg");
+	background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 header {
-    width: 100%;
-    height:300px;
-	background-color: #000000;
+	width: auto;
+	height: 300px;
+	/*background-color: #000000;*/
+	background-image: url('assets/images/starwarslogo.jpg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 #header-image{
-	width: 100%;
-	height: 100%;
+	/*width: 100%;
+	height: 300px;*/
 }
 
 #choose{
 	text-align: center;
+	color: #f0d885;
 	font-family: 'Play', sans-serif;
 	font-size: 30px;
 	background-color: #9e0b0b;
-	margin: 30px;
+	margin-top: 20px;
 }
 
 #players{
 	background-color: #9e0b0b;
-	margin: 30px;
 	height: 230px;
 	opacity: 0.8;
+	margin-top: 20px;
+}
+#image-wrap{
+	display: flex;
+  justify-content: center;
 }
 #players img{
-	margin: 10px;
+	width: 250px;
 	border-radius: 50%;
+	margin: 20px;
 }
-#chosen-players{
+#player1{
 	background-color: #9e0b0b;
-	margin-left: 30px;
 	height: 250px;
-	width: 50%;
 	display: inline-block;
 	opacity: 0.8;
+	margin-top: 20px;
 }
-#chosen-players img{
+#player1 img{
 	border-radius: 50%;
-	margin: 10px;
+	display: block;
+	margin:auto;
+	margin-top: 20px;
+}
+#vs{
+	text-align: center;
+	font-size: 32px;
+	height: 250px;
+	background-color: #9e0b0b;
+	margin-top: 20px;
+	opacity: 0.8;
+}
+#player2{
+	background-color: #9e0b0b;
+	height: 250px;
+	display: inline-block;
+	opacity: 0.8;
+	margin-top: 20px;
+}
+#player2 img{
+	border-radius: 50%;
+	display: block;
+	margin:auto;
+	margin-top: 20px;
+}
+#text{
+	margin-top: 30px;
 }
 button{
-	background: #9e0b0b;
-	height: 250px;
+	background: #f0d885;
+	margin: 20px;
+	height: 50px;
 }
 #messages{
 	background-color: #9e0b0b;
-	margin-left: 25px;
-	height: 250px;
-	width: 30%;
-	display: inline-block;
-	vertical-align: top;
+	height: 100px;
+	margin: 0 auto;
 	opacity: 0.8;
+	margin-bottom: 100px;
+	text-align: center;
+	margin-top: 20px;
+	color: #f0d885;
 }
-#attack{
-	margin-left: 25px;
-	display: inline-block;
-	vertical-align: top;
+#me{
+	background-color: #9e0b0b;
+	height: 100px;
+	opacity: 0.8;
+	margin-bottom: 100px;
+	text-align: center;
+	margin-top: 20px;
+	color: #f0d885;
+}
+#enemy{
+	background-color: #9e0b0b;
+	height: 100px;
+	opacity: 0.8;
+	margin-bottom: 100px;
+	text-align: center;
+	margin-top: 20px;
+	color: #f0d885;
 }
 #battle{
-	margin-left: 20px;
 	margin-top: 15px;
 }
 #score{
-	text-align: left;
-	position: absolute;
-	bottom: 20px;
-	margin-left: 20px;
+	margin-top: 20px;
 }
-
-
